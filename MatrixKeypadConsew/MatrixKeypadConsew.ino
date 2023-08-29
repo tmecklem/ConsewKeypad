@@ -1,11 +1,3 @@
-/**
- * Matrix Keypad
- * 
- * This example shows how to use the library to perform a blocking read of a generic keypad.
- *  
- * @version 1.1.0
- * @author Victor Henrique Salvi
- */
 
 #include <Arduino.h>
 #include "MatrixKeypad.h"
@@ -15,8 +7,8 @@
 
 const uint8_t rown = 5;
 const uint8_t coln = 8;
-uint8_t rowPins[rown] = {11,10,9,3,2}; //frist row is connect to pin 10, second to 9...
-uint8_t colPins[coln] = {15,14,13,12,7,6,5,4}; //frist column is connect to pin 6, second to 5...
+uint8_t rowPins[rown] = {11,10,9,3,2};
+uint8_t colPins[coln] = {15,14,13,12,7,6,5,4};
 char keymap[rown][coln] = {
   {'7','5','3','1','6','4','2','0'},
   {'X','D','S','P','R','C','M','Y'},
@@ -24,7 +16,7 @@ char keymap[rown][coln] = {
   {'F','~','+','9','A','C','O','8'},
   {'E','{','?','*','H','}','!','I'}  
 };
-MatrixKeypad_t *keypad; //keypad is the variable that you will need to pass to the other functions
+MatrixKeypad_t *keypad;
 
 LiquidCrystal_PCF8574 lcd(0x27);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
@@ -43,7 +35,6 @@ void setup() {
   Wire.setSDA(16);
   Wire.setSCL(17);
 
-  // See http://playground.arduino.cc/Main/I2cScanner how to test for a I2C device.
   Wire.begin();
   Wire.beginTransmission(0x27);
 
